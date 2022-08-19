@@ -34,12 +34,14 @@ result.score
 
 ### `보완할 점`
 
-[] 비밀번호 미입력시, 하단에 아무런 텍스트도 나타나지 않아야함.
+[x] 비밀번호 미입력시, 하단에 아무런 텍스트도 나타나지 않아야함.
 
-   [발생한 문제] input 창이 비어도, default: 값이 나타나지않음.
-              case 0 값만 나타남.
-    -> case 0:
-          return '사용할 수 없습니다.';
-       default:
-          return'';
-.
+[발생한 문제] input 창이 비어도, default: 값이 나타나지않음. -> case 0 값만 나타남.
+
+->
+case 0:
+return '사용할 수 없습니다.';
+
+default:
+return'';
+
