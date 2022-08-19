@@ -1,70 +1,45 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Password Progress bar
 
-## Available Scripts
+![화면-기록-2022-08-19-오후-10 52 27](https://user-images.githubusercontent.com/56300369/185635018-e8c64bbb-b208-4cf9-ba12-ff1f5a36e926.gif)
 
-In the project directory, you can run:
 
-### `npm start`
+### `라이브러리`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[zxcvbn 라이브러리](https://www.npmjs.com/package/zxcvbn)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<콘솔창에서 확인 할 부분>
+result.score
+  0-4의 정수(강도 막대를 구현하는 데 유용) 
+ 
+  0 #  너무 추측 가능: 위험한 암호.
+ 
+  1 #  매우 추측 가능: 제한된 온라인 공격으로부터 보호.
+ 
+  2 #  다소 추측 가능: 제한되지 않은 온라인 공격으로부터 보호.
+ 
+  3 #  안전하게 추측할 수 없음: 오프라인 슬로우 해시 시나리오로부터 적당한 보호. 
+ 
+  4 #  매우 추측할 수 없음: 오프라인 슬로우 해시 시나리오로부터 강력한 보호.  
 
-### `npm test`
+---------------------------------------
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `구현 방법`
 
-### `npm run build`
+1. 암호화 라이브러리를 사용하여, 콘솔로 비밀번호 score를 확인.
+2. score(0~4) 수를 0~100으로 변환한다.
+3. score 점수에 따라, Progress-bar의 길이와 색상이 바뀐다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---------------------------------------
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `보완할 점`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[] 비밀번호 미입력시, 하단에 아무런 텍스트도 나타나지 않아야함.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [발생한 문제] input 창이 비어도, default: 값이 나타나지않음.
+              case 0 값만 나타남.
+    -> case 0:
+          return '사용할 수 없습니다.';
+       default:
+          return'';
+.
